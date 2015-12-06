@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   width="795" height="381" 
+			   backgroundColor="#2d2d2d" color="#FCFAFA" 
+			   initialize="initVideostreaming(event)" creationComplete="creationCompleteHandler(event)"
+			   >
+	<fx:Style source="flashEncoder.css"/>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			include "flashEncoder.as";
+			
+			protected function initVideostreaming(event:FlexEvent):void
+			{
+				// TODO Auto-generated method stub
+				InitSetting();
+			}
+			
+			protected function creationCompleteHandler(event:FlexEvent):void
+			{
+			}
+			
+		]]>
+	</fx:Script>
+	<s:Button x="622" y="323" id="BtnRecord" width="136" height="34" label="Start Capture" chromeColor="#2AA619" click="onStartCapture()"
+			  focusColor="#70B2EE"/>
+	<s:TextArea id="idTextLog" x="366" y="75" width="388" height="240" editable="false"
+				verticalAlign="top"/>
+	<mx:VideoDisplay id="vidPreview" x="29" y="75" width="320" height="240"
+					 contentBackgroundAlpha="1.0" contentBackgroundColor="#EAEAEA"/>
+	<s:Button x="656" y="45" width="99" label="Browse" click="fileOpen()"/>
+	<s:TextInput id="idUrl" x="29" y="44" width="610"/>
+</s:WindowedApplication>
